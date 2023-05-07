@@ -1,0 +1,24 @@
+.card-main {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.cdt-product__name {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: normal;
+    color: #474c51;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 10;
+}
+
+h3 {
+    margin-bottom: 2rem;
+}
