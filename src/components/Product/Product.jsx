@@ -8,36 +8,19 @@ const Product = (props) => {
     const { data } = props;
 
     return (
-        <div className="main">
-            <a href={data.url} rel="noreferrer" target="_blank">
-                <div className="card-main">
-                    <div className="img-section">
-                        <span className="opacity lazy-load-image-loaded">
-                            <img
-                                src={imgurl}
-                                alt="iPhone 11 64GB"
-                                title="iPhone 11 64GB"
-                                height="214"
-                            />
-                        </span>
+        <div className="flex flex-row w-full p-2 m-2 rounded shadow main">
+            <div className="w-48 h-48 ">
+                <img className="object-cover w-full h-full rounded" src={imgurl} />
+            </div>
+            <div className="w-full ">
+                <a href={data.url} rel="noreferrer" target="_blank">
+                    <div className="flex flex-col items-center p-4">
+                        {/* <p className="text-xs font-light text-center text-gray-400">Hammond robotics</p> */}
+                        <h1 className="mt-1 font-bold text-center text-gray-800">{data.name}</h1>
+                        <p className="mt-1 text-center text-gray-800">{data.price}</p>
                     </div>
-                    <div className="info-section">
-                        <h3>
-                            <a
-                                href={data.url}
-                                class="cdt-product__name"
-                                rel="noreferrer"
-                                target="_blank"
-                            >
-                                {data.name}
-                            </a>
-                        </h3>
-                        <div>
-                            <h2>{data.price}</h2>
-                        </div>
-                    </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
     );
 };
