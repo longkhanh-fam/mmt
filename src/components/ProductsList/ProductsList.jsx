@@ -39,8 +39,7 @@ const ProductsList = () => {
     };
 
     return (
-        <div className="product-main">
-            <h1 className="text-3xl font-bold mb-4">FPT FACE</h1>
+        <div className="product-main mt-4">
             <div className="flex w-full">
                 <div className="w-3/4">
                     {data.slice(0, 20).map((data, index) => {
