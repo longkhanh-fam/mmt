@@ -19,21 +19,20 @@ function App() {
             const filteredData = initList.filter((item) =>
                 item.name.toLowerCase().includes(word.toLowerCase()),
             );
-            console.log(filteredData);
             setProductList(filteredData);
         }
     };
 
     function handleMenuSelect({ key }) {
-        console.log(`Selected item key: ${brands[key]}`);
         filterList(brands[key]);
     }
 
     return (
-        <div className="App bg-sky-950">
+        <div className="App ">
             <Layout className="layout">
-                <Header>
+                <Header className="bg-gray-950">
                     <Menu
+                        className="bg-gray-950"
                         theme="dark"
                         mode="horizontal"
                         defaultSelectedKeys={['1']}
@@ -47,10 +46,10 @@ function App() {
                         })}
                     />
                 </Header>
-                <Content style={{ padding: '0 50px' }}>
+                <Content className="bg-gray-900" style={{ padding: '0 50px' }}>
                     <ProductsList productList={productList}></ProductsList>
                 </Content>
-                <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+                <Footer style={{ textAlign: 'center' }}>@2023 LONGKA CLONE</Footer>
             </Layout>
         </div>
     );
