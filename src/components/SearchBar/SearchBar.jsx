@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SearchShow from '../SeachShow/SearchShow';
 
 const SearchBar = (props) => {
     const { productList } = props;
@@ -28,16 +29,14 @@ const SearchBar = (props) => {
         else setIsPanelOpen(true);
     };
 
-    const filteredSearch =
+    const searchList =
         productList.filter((product) => {
             const titleMatch = product.name.toLowerCase().includes(query.toLowerCase());
             return titleMatch;
         }) || [];
 
-    console.log(filteredSearch);
-
     return (
-        <div>
+        <div className="relative">
             <form className="mb-4">
                 <label
                     for="search"
@@ -74,11 +73,7 @@ const SearchBar = (props) => {
                     />
                 </div>
             </form>
-            {isPanelOpen && (
-                <div className="bg-sky-200">
-                    <h1>123</h1>
-                </div>
-            )}
+            {isPanelOpen && <SearchShow searchList={searchList} />}
         </div>
     );
 };

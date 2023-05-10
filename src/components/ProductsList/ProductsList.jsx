@@ -1,16 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import Product from '../Product/Product';
 
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 import SearchBar from '../SearchBar/SearchBar';
 
 const ProductsList = (props) => {
     const [sortBy, setSortBy] = useState('Sort By');
     const [isOpen, setIsOpen] = useState(false);
+    const [query, setQuery] = useState('');
     const [low, setLow] = useState(0);
     const [high, setHigh] = useState(999999999);
     const { productList } = props;
+
+    const debounce = (fn, delay) => {
+        let timer;
+        return function () {
+            const context = this;
+            const args = arguments;
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                fn.apply(context, args);
+            }, delay);
+        };
+    };
+
+    // const handleSearch = debounce(() => {
+    //     setQuery(userInput);
+    // }, 500);
+
+    const handleLowChange = (event) => {
+        setLow(event.target.value);
+        if (event.target.value === '') setLow(0);
+    };
+    const handleHighChange = (event) => {
+        setHigh(event.target.value);
+        if (event.target.value === '') setHigh(999999999);
+    };
+
+    const handleFilter = () => {
+        console.log(123);
+    };
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
@@ -41,7 +69,7 @@ const ProductsList = (props) => {
     };
 
     return (
-        <div className="product-main mt-4 bg-gray-900">
+        <div className="product-main my-8 bg-gray-900">
             <SearchBar productList={productList} />
             <div className="flex w-full">
                 <div className="w-3/4">
@@ -52,7 +80,7 @@ const ProductsList = (props) => {
                 </div>
                 <div className="w-1/4 bg-gray-900 ml-8">
                     <div className="p-4 bg-gray-950 rounded">
-                        <div className="w-full flex">
+                        {/* <div className="w-full flex">
                             <div className="w-1/2">
                                 <label
                                     for="first_name"
@@ -65,7 +93,8 @@ const ProductsList = (props) => {
                                     id="first_name"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder={low}
-                                    required
+                                    onChange={handleLowChange}
+                                    onKeyUp={handleFilter}
                                 />
                             </div>
                             <h2 className="dark:text-white">-</h2>
@@ -81,11 +110,12 @@ const ProductsList = (props) => {
                                     id="first_name"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder={high}
-                                    required
+                                    onChange={handleHighChange}
+                                    onKeyUp={handleFilter}
                                 />
                             </div>
-                        </div>
-                        <div className="w-full flex mt-2">
+                        </div> */}
+                        <div className="w-full flex mt-2 flex-col">
                             <button
                                 id="dropdownDefaultButton"
                                 productList-dropdown-toggle="dropdown"
@@ -111,13 +141,13 @@ const ProductsList = (props) => {
                                 </svg>
                             </button>
                             {isOpen && (
-                                <div className="flex justify-center">
+                                <div className="mt-2 flex justify-center w-full">
                                     <div
                                         id="dropdown"
-                                        className="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+                                        className="w-full z-10 bg-white divide-gray-100 rounded-lg shadow dark:bg-gray-700"
                                     >
                                         <ul
-                                            className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                                            className="w-full py-2 text-sm text-gray-700 dark:text-gray-200"
                                             aria-labelledby="dropdownDefaultButton"
                                         >
                                             <li>

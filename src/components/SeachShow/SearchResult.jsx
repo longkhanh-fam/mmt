@@ -1,7 +1,6 @@
 import React from 'react';
-import './Product.css';
 
-const Product = (props) => {
+const SearchResult = (props) => {
     const { data } = props;
     const imgurl = data.img_url;
     const handleFind = (name) => {
@@ -15,7 +14,7 @@ const Product = (props) => {
 
     return (
         <div className="flex flex-row w-full p-4 mb-4 rounded main bg-gray-950 hover:bg-gray-800">
-            <div className="w-32 h-32 ">
+            <div className="w-28 h-28 ">
                 <img className="object-cover w-full h-full rounded" src={imgurl} />
             </div>
             <div className="w-full ">
@@ -24,7 +23,7 @@ const Product = (props) => {
                         <p className="text-md font-bold text-start text-gray-400 ">
                             {handleFind(data.retailer)}
                         </p>
-                        <h1 className="text-2xl font-bold text-start text-gray-50">{data.name}</h1>
+                        <h1 className="text-xl font-bold text-start text-gray-50">{data.name}</h1>
                         <p className="mt-1 text-start text-gray-50 text-base">{data.price}</p>
                     </div>
                 </a>
@@ -33,4 +32,4 @@ const Product = (props) => {
     );
 };
 
-export default Product;
+export default SearchResult;

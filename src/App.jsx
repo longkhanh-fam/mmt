@@ -9,8 +9,14 @@ import react, { useState } from 'react';
 const { Header, Content, Footer } = Layout;
 
 function App() {
-    const brands = ['All', 'Acer', 'Lenovo', 'Asus', 'MSI', 'Macbook', 'HP', 'Dell'];
-    const initList = ProductData;
+    const laptopBrands = ['All', 'Acer', 'Lenovo', 'Asus', 'MSI', 'Macbook', 'HP', 'Dell'];
+    const phoneBrands = ['All', 'Nokia', 'Lenovo'];
+    const tabletBrands = ['All', 'Acer', 'tungdeptrai'];
+    const productLayout = ['Laptop', 'Phone', 'Tablet'];
+
+    const [brands, setBrands] = useState(laptopBrands);
+
+    const [initList, setInitList] = useState(ProductData);
     const [productList, setProductList] = useState(ProductData);
 
     const filterList = (word) => {
@@ -23,13 +29,45 @@ function App() {
         }
     };
 
+    const handleChangeProduct = () => {};
+
     function handleMenuSelect({ key }) {
         filterList(brands[key]);
+    }
+
+    function handleLayoutSelect({ key }) {
+        if (key === '0') {
+            setBrands(laptopBrands);
+        }
+        if (key === '1') {
+            setBrands(phoneBrands);
+        }
+        if (key === '2') {
+            setBrands(tabletBrands);
+        }
+        console.log(productLayout[key]);
+        console.log(brands);
     }
 
     return (
         <div className="App ">
             <Layout className="layout">
+                <Header className="bg-gray-950">
+                    <Menu
+                        className="bg-gray-950"
+                        theme="dark"
+                        mode="horizontal"
+                        defaultSelectedKeys={['0']}
+                        onSelect={handleLayoutSelect}
+                        items={productLayout.map((_, index) => {
+                            const key = index;
+                            return {
+                                key,
+                                label: `${productLayout[index]}`,
+                            };
+                        })}
+                    />
+                </Header>
                 <Header className="bg-gray-950">
                     <Menu
                         className="bg-gray-950"
@@ -49,7 +87,9 @@ function App() {
                 <Content className="bg-gray-900" style={{ padding: '0 50px' }}>
                     <ProductsList productList={productList}></ProductsList>
                 </Content>
-                <Footer style={{ textAlign: 'center' }}>@2023 LONGKA CLONE</Footer>
+                <Footer className="bg-gray-950 text-gray-50" style={{ textAlign: 'center' }}>
+                    @2023 LONGKA CLONE
+                </Footer>
             </Layout>
         </div>
     );
