@@ -35,7 +35,7 @@ function App() {
                         className="bg-gray-950"
                         theme="dark"
                         mode="horizontal"
-                        defaultSelectedKeys={['1']}
+                        defaultSelectedKeys={['0']}
                         onSelect={handleMenuSelect}
                         items={brands.map((_, index) => {
                             const key = index;
