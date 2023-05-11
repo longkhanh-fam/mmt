@@ -3,25 +3,27 @@ import './index.css';
 import './dist/output.css';
 import ProductMain from './components/ProductMain/ProductMain';
 import { Breadcrumb, Layout, Menu } from 'antd';
-import ProductData from './json/ProductData.json';
+import ProductData from './json/laptopsData.json';
+import laptopsData from './json/laptopsData.json';
+import tabletsData from './json/tabletsData.json';
+import mobilesData from './json/mobilesData.json';
 import react, { useState } from 'react';
 import 'animate.css';
 
 const { Header, Content, Footer } = Layout;
+const productLayout = ['Laptop', 'Phone', 'Tablet'];
+const laptopBrands = ['All', 'Acer', 'Lenovo', 'Asus', 'MSI', 'Macbook', 'HP', 'Dell'];
+const phoneBrands = ['All', 'Nokia', 'Lenovo'];
+const tabletBrands = ['All', 'Acer', 'tungdeptrai'];
 
 function App() {
-    const laptopBrands = ['All', 'Acer', 'Lenovo', 'Asus', 'MSI', 'Macbook', 'HP', 'Dell'];
-    const phoneBrands = ['All', 'Nokia', 'Lenovo'];
-    const tabletBrands = ['All', 'Acer', 'tungdeptrai'];
-    const productLayout = ['Laptop', 'Phone', 'Tablet'];
-
+    const [selectedKey, setSelectedKey] = useState('0');
     const [brands, setBrands] = useState(laptopBrands);
-
     const [initList, setInitList] = useState(ProductData);
     const [productList, setProductList] = useState(ProductData);
 
     const filterList = (word) => {
-        if (word === 'All') setProductList(ProductData);
+        if (word === 'All') setProductList(initList);
         else {
             const filteredData = initList.filter((item) =>
                 item.name.toLowerCase().includes(word.toLowerCase()),
@@ -30,24 +32,28 @@ function App() {
         }
     };
 
-    const handleChangeProduct = () => {};
-
     function handleMenuSelect({ key }) {
         filterList(brands[key]);
+        setSelectedKey(key);
     }
 
     function handleLayoutSelect({ key }) {
         if (key === '0') {
             setBrands(laptopBrands);
+            setProductList(laptopsData);
+            setInitList(laptopsData);
         }
         if (key === '1') {
             setBrands(phoneBrands);
+            setProductList(mobilesData);
+            setInitList(mobilesData);
         }
         if (key === '2') {
             setBrands(tabletBrands);
+            setProductList(tabletsData);
+            setInitList(tabletsData);
         }
-        console.log(productLayout[key]);
-        console.log(brands);
+        setSelectedKey('0');
     }
 
     return (
@@ -76,6 +82,7 @@ function App() {
                         mode="horizontal"
                         defaultSelectedKeys={['0']}
                         onSelect={handleMenuSelect}
+                        selectedKeys={[selectedKey]}
                         items={brands.map((_, index) => {
                             const key = index;
                             return {
