@@ -1,0 +1,72 @@
+.pagination {
+    color: #fff;
+}
+.pagination .selected a {
+    background-color: #fff;
+    color: #222f43;
+}
+
+.pagination li a:hover {
+    cursor: pointer;
+    color: #222f43;
+    background-color: #fff;
+}
+.pagination {
+    display: flex;
+    width: 100%;
+    padding-left: 0;
+    list-style: none;
+}
+.pagination li {
+    display: flex;
+    margin-right: 6px;
+}
+.pagination li a {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 0.75rem;
+    line-height: 19px;
+    font-weight: 700;
+    line-height: 40px;
+    background-color: #222f43;
+    border: 0;
+    padding: 0;
+    text-align: center;
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}  
+        
+.pagination li a i {
+    vertical-align: middle;
+}
+
+.pagination i[class*=" fi-rr-"]:before, i[class^=fi-rr-]:before, span[class*=fi-rr-]:before, span[class^=fi-rr-]:before {
+    font-family: uicons-regular-rounded!important;
+    font-style: normal;
+    font-weight: 400!important;
+    font-feature-settings: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.pagination li a:hover {
+    background-image: linear-gradient(90deg,#0ea5ea,#0bd1d1 51%,#0ea5ea) var(--x,0)/200%;
+}
+
+.pagination .page-link:hover {
+    color: #fff;
+    background-color: #0ea5ea;
+    border-color: #0ea5ea;
+    transform: translateY(-1px);
+}
+.pagination .page-link, .page-link:hover {
+    transition: all .25s cubic-bezier(.02,.01,.47,1);
+}

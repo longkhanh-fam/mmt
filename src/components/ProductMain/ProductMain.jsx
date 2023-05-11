@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Product from '../Product/Product';
+import ProductContainer from '../ProductContainer/ProductContainer';
 
 import SearchBar from '../SearchBar/SearchBar';
 
@@ -73,48 +73,10 @@ const ProductsList = (props) => {
             <SearchBar productList={productList} />
             <div className="flex w-full">
                 <div className="w-3/4">
-                    {productList &&
-                        productList.slice(0, 20).map((data, index) => {
-                            return <Product data={data} key={index}></Product>;
-                        })}
+                    {productList && <ProductContainer productList={productList} />}
                 </div>
                 <div className="w-1/4 bg-gray-900 ml-8">
                     <div className="p-4 bg-gray-950 rounded">
-                        {/* <div className="w-full flex">
-                            <div className="w-1/2">
-                                <label
-                                    for="first_name"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                >
-                                    Higher than
-                                </label>
-                                <input
-                                    type="text"
-                                    id="first_name"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder={low}
-                                    onChange={handleLowChange}
-                                    onKeyUp={handleFilter}
-                                />
-                            </div>
-                            <h2 className="dark:text-white">-</h2>
-                            <div className="w-1/2">
-                                <label
-                                    for="first_name"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                >
-                                    Lower than
-                                </label>
-                                <input
-                                    type="text"
-                                    id="first_name"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder={high}
-                                    onChange={handleHighChange}
-                                    onKeyUp={handleFilter}
-                                />
-                            </div>
-                        </div> */}
                         <div className="w-full flex mt-2 flex-col">
                             <button
                                 id="dropdownDefaultButton"

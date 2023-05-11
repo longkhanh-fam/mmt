@@ -1,10 +1,11 @@
 import './App.css';
 import './index.css';
 import './dist/output.css';
-import ProductsList from './components/ProductsList/ProductsList';
+import ProductMain from './components/ProductMain/ProductMain';
 import { Breadcrumb, Layout, Menu } from 'antd';
 import ProductData from './json/ProductData.json';
 import react, { useState } from 'react';
+import 'animate.css';
 
 const { Header, Content, Footer } = Layout;
 
@@ -85,7 +86,7 @@ function App() {
                     />
                 </Header>
                 <Content className="bg-gray-900" style={{ padding: '0 50px' }}>
-                    <ProductsList productList={productList}></ProductsList>
+                    <ProductMain productList={productList}></ProductMain>
                 </Content>
                 <Footer className="bg-gray-950 text-gray-50" style={{ textAlign: 'center' }}>
                     @2023 LONGKA CLONE

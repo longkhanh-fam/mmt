@@ -2,7 +2,7 @@ import React from 'react';
 import './Product.css';
 
 const Product = (props) => {
-    const { data } = props;
+    const { data, delay } = props;
     const imgurl = data.img_url;
     const handleFind = (name) => {
         if (name === 'tgdd') return 'THẾ GIỚI DI ĐỘNG';
@@ -14,7 +14,10 @@ const Product = (props) => {
     };
 
     return (
-        <div className="flex flex-row w-full p-4 mb-4 rounded main bg-gray-950 hover:bg-gray-800">
+        <div
+            style={{ animationDelay: `${delay * 0.2}s` }}
+            className="animate__animated animate__fadeInLeft flex flex-row w-full p-4 mb-4 rounded main bg-gray-950 hover:bg-gray-800"
+        >
             <div className="w-32 h-32 ">
                 <img className="object-cover w-full h-full rounded" src={imgurl} />
             </div>

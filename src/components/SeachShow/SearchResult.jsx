@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SearchResult = (props) => {
-    const { data } = props;
+    const { data, delay } = props;
     const imgurl = data.img_url;
     const handleFind = (name) => {
         if (name === 'tgdd') return 'THẾ GIỚI DI ĐỘNG';
@@ -13,7 +13,10 @@ const SearchResult = (props) => {
     };
 
     return (
-        <div className="flex flex-row w-full p-4 mb-4 rounded main bg-gray-950 hover:bg-gray-800">
+        <div
+            className="animate__animated animate__fadeInDown flex flex-row w-full p-4 mb-4 rounded main bg-gray-950 hover:bg-gray-80 z-50"
+            style={{ animationDelay: `${delay * 0.2}s` }}
+        >
             <div className="w-28 h-28 ">
                 <img className="object-cover w-full h-full rounded" src={imgurl} />
             </div>
