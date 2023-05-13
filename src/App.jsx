@@ -7,14 +7,20 @@ import ProductData from './json/laptopsData.json';
 import laptopsData from './json/laptopsData.json';
 import tabletsData from './json/tabletsData.json';
 import mobilesData from './json/mobilesData.json';
+import LinhKienData from './json/LinhKien.json';
+import PhuKienData from './json/PhuKien.json';
+import PCData from './json/PCs.json';
 import react, { useState } from 'react';
 import 'animate.css';
 
 const { Header, Content, Footer } = Layout;
-const productLayout = ['Laptop', 'Phone', 'Tablet'];
-const laptopBrands = ['All', 'Acer', 'Lenovo', 'Asus', 'MSI', 'Macbook', 'HP', 'Dell'];
-const phoneBrands = ['All', 'Nokia', 'Lenovo'];
-const tabletBrands = ['All', 'Acer', 'tungdeptrai'];
+const productLayout = ['Laptop', 'Phone', 'Tablet', 'Linh kien', 'Phu kien', 'PC'];
+const laptopBrands = ['All', 'Acer', 'Lenovo', 'Asus', 'MSI', 'Macbook', 'HP', 'Dell', 'GIGABYTE', 'Huawei', 'LG', 'Avita'];
+const phoneBrands = ['All', 'Nokia', 'Masstel', 'Samsung', 'Iphone', 'Xiaomi', 'Vivo', 'Oppo', 'realme', 'Asus', 'Itel', 'Mobell'];
+const tabletBrands = ['All', 'Ipad', 'Samsung', 'Lenovo', 'Coolpad', 'Xiaomi', 'OPPO', 'Masstel', 'Nokia'];
+const linhKienBrands = ['All', 'CPU', 'Mainboard', 'RAM', 'HDD', 'SSD', 'Ổ quang', 'Card màn hình', 'Case', 'Nguồn'];
+const phuKienBrands = ['All', 'Bàn phím', 'Chuột', 'Tai nghe', 'Bàn Gaming', 'Ghế', 'Loa'];
+const PCBrands = ['All', 'Acer', 'Lenovo', 'Asus', 'MSI', 'Imac', 'HP', 'Dell', 'Intel', 'Hacom', 'phongvu', 'E-Power'];
 
 function App() {
     const [selectedKey, setSelectedKey] = useState('0');
@@ -53,6 +59,23 @@ function App() {
             setProductList(tabletsData);
             setInitList(tabletsData);
         }
+        if (key === '3') {
+            setBrands(linhKienBrands);
+            setProductList(LinhKienData);
+            setInitList(LinhKienData);
+        }
+        if (key === '4') {
+            setBrands(phuKienBrands);
+            setProductList(PhuKienData);
+            setInitList(PhuKienData);
+        }
+        if (key === '5') {
+            setBrands(PCBrands);
+            setProductList(PCData);
+            setInitList(PCData);
+        }
+        
+
         setSelectedKey('0');
     }
 
