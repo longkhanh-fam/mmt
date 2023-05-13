@@ -15,7 +15,7 @@ import 'animate.css';
 
 const { Header, Content, Footer } = Layout;
 const productLayout = ['Laptop', 'Phone', 'Tablet', 'Linh kien', 'Phu kien', 'PC'];
-const laptopBrands = ['All', 'Acer', 'Lenovo', 'Asus', 'MSI', 'Macbook', 'HP', 'Dell', 'GIGABYTE', 'Huawei', 'LG', 'Avita'];
+const laptopBrands = ['All', 'Acer', 'Lenovo', 'Asus', 'MSI', 'Macbook', 'HP', 'Dell', 'GIGABYTE',  'LG'];
 const phoneBrands = ['All', 'Nokia', 'Masstel', 'Samsung', 'Iphone', 'Xiaomi', 'Vivo', 'Oppo', 'realme', 'Asus', 'Itel', 'Mobell'];
 const tabletBrands = ['All', 'Ipad', 'Samsung', 'Lenovo', 'Coolpad', 'Xiaomi', 'OPPO', 'Masstel', 'Nokia'];
 const linhKienBrands = ['All', 'CPU', 'Mainboard', 'RAM', 'HDD', 'SSD', 'Ổ quang', 'Card màn hình', 'Case', 'Nguồn'];
